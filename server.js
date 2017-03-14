@@ -1,7 +1,8 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-var Pool = require('pool').Pool;
+//var Pool = require('pool').Pool;
+var crypto = require('crypto');
 
 var config = {
     user : 'magnateworks',
@@ -26,8 +27,18 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
+function hash(input,salt){
+    var hashed = crypto.pbkdf2Sync(input,salt,10000,512,'sha512');     
+    return hashed.toString('hex');
+}
 
-var pool = new Pool(config);
+app.get('/hash/:input',function(req,res){
+    var hashedString = hash(req.params.input,'this-is-string-random');
+    res.send(hashedString);
+})
+
+
+/*var pool = new Pool(config);
 app.get('/test-db', function (req, res) {
     pool.query('select * from test',function(err,result){
      if(err){
@@ -37,7 +48,7 @@ app.get('/test-db', function (req, res) {
      }   
     })
    
-});
+});*/
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
