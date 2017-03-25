@@ -16,4 +16,4 @@ function moveRight(){
 
 img.OnClick = function() {
     setInterval(moveRight,50);
-}
+};
