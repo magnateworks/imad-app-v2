@@ -19,10 +19,10 @@ img.onclick = function() {
 };
 
 var counter=0;
-var element = document.getElementById("counter");
+var span = document.getElementById("counter");
 
-element.onclick = function(){
+span.onclick = function(){
     counter=counter+1;
-    element.innerHTML=counert.toString();
+    span.innerHTML=counert.toString();
 }
 
