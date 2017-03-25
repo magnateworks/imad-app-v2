@@ -4,13 +4,70 @@ var path = require('path');
 //var Pool = require('pool').Pool;
 var crypto = require('crypto');
 
+
+var articleOne = {
+    title:"Article One | Mangesh",
+    heading:"Article One",
+    date:"Mar 25 2017",
+    content: `               <p>
+                    This is content of article one. This is content of article one. This is content of article one. This is content of article one. This is content of article one.
+                </p>            
+                <p>
+                    This is content of article one. This is content of article one. This is content of article one. This is content of article one. This is content of article one.
+                </p>            
+                <p>
+                    This is content of article one. This is content of article one. This is content of article one. This is content of article one. This is content of article one.
+                </p>`
+
+};
+
+function createTemplate(data){
+    var title = data.title;
+    var heading = data.heading;
+    var date = data.date;
+    var content = data.content;
+
+    var htmlTemplate = `
+    <html>
+        <head>
+            <title>
+                ${title}
+            </title>
+            <link href="/ui/style.css" rel="stylesheet" />
+        </head>
+        
+        <body>
+            <div class="container">
+                <div>
+                    <a href="/">Home</a>
+                </div>
+                <br/>
+                <h3>
+                    ${heading}
+                </h3>
+                <div>
+                    ${date}
+                </div>
+                <div>
+                    ${content}
+                </div>
+            </div>
+        </body>
+        
+    </html>
+    `
+    
+    return htmlTemplate;
+
+}
+
 var config = {
     user : 'magnateworks',
     database : 'magnateworks',
     host : 'db.imad.hasura-app.io',
     port : '5432',
     password : process.env.DB_PASSWORD
-}
+};
 
 var app = express();
 app.use(morgan('combined'));
@@ -29,7 +86,7 @@ app.get('/ui/madi.png', function (req, res) {
 
 
 app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article_one.html'));
+  res.send(createTemplate(articleOne));
 });
 
 app.get('/article-two', function (req, res) {
