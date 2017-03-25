@@ -19,7 +19,7 @@ button.onclick = function(){
     };
     
     //make request
-    request.open('GET', 'magnateworks.imad.hasura-app.io/counter', true);
+    request.open('GET', 'http://magnateworks.imad.hasura-app.io/counter', true);
     request.send(null);
 
 };
