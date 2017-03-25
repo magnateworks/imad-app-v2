@@ -6,11 +6,11 @@ var crypto = require('crypto');
 
 
 var articles = {
-    article-one : {
-    title:"Article One | Mangesh",
-    heading:"Article One",
-    date:"Mar 25 2017",
-    content: `               <p>
+    'article-one' : {
+    title : "Article One | Mangesh",
+    heading : "Article One",
+    date : "Mar 25 2017",
+    content : `               <p>
                     This is content of article one. This is content of article one. This is content of article one. This is content of article one. This is content of article one.
                 </p>            
                 <p>
@@ -21,7 +21,7 @@ var articles = {
                 </p>`
 
     },
-    article-two : {
+    'article-two' : {
     title:"Article Two | Mangesh",
     heading:"Article Two",
     date:"Mar 22 2017",
@@ -30,7 +30,7 @@ var articles = {
                 </p>`
 
     },
-    article-three : {
+    'article-three' : {
     title:"Article Three | Mangesh",
     heading:"Article Three",
     date:"Mar 23 2017",
@@ -39,7 +39,7 @@ var articles = {
                 </p>`
 
     }
-}
+};
     
     
 
