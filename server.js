@@ -22,7 +22,7 @@ var articles = {
 
     },
     'article-two' : {
-    title:"Article Two | Mangesh",
+    title : "Article Two | Mangesh",
     heading:"Article Two",
     date:"Mar 22 2017",
     content: `<p>
@@ -31,7 +31,7 @@ var articles = {
 
     },
     'article-three' : {
-    title:"Article Three | Mangesh",
+    title : "Article Three | Mangesh",
     heading:"Article Three",
     date:"Mar 23 2017",
     content: `<p>
