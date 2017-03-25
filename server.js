@@ -5,7 +5,8 @@ var path = require('path');
 var crypto = require('crypto');
 
 
-var articleOne = {
+var articles = {
+    article-one : {
     title:"Article One | Mangesh",
     heading:"Article One",
     date:"Mar 25 2017",
@@ -19,7 +20,28 @@ var articleOne = {
                     This is content of article one. This is content of article one. This is content of article one. This is content of article one. This is content of article one.
                 </p>`
 
-};
+    },
+    article-two : {
+    title:"Article Two | Mangesh",
+    heading:"Article Two",
+    date:"Mar 22 2017",
+    content: `<p>
+                    This is content of article Two.
+                </p>`
+
+    },
+    article-three : {
+    title:"Article Three | Mangesh",
+    heading:"Article Three",
+    date:"Mar 23 2017",
+    content: `<p>
+                    This is content of article Three 
+                </p>`
+
+    }
+}
+    
+    
 
 function createTemplate(data){
     var title = data.title;
@@ -85,16 +107,17 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 
-app.get('/article-one', function (req, res) {
-  res.send(createTemplate(articleOne));
+app.get('/:articleName', function (req, res) {
+  var articleName = req.params.articleName;    
+  res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/article-two', function (req, res) {
-  res.send("Article two requested and will be served here.");
+  res.send(createTemplate(articleTwo));
 });
 
 app.get('/article-three', function (req, res) {
-  res.send("Article three requested and will be served here.");
+  res.send(createTemplate(articleThree));
 });
 
 
